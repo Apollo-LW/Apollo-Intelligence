@@ -2,7 +2,7 @@
 
 [![Jina](https://github.com/jina-ai/jina/blob/master/.github/badges/jina-badge.svg?raw=true  "We fully commit to open-source")](https://get.jina.ai)
 
-The main search engine for the Apollo project, which provides an interface for users to search for educational resources.
+The main search engine for the Apollo project, which provides an interface for users to search for educational resources over the internet, in more than 100 languages.
 
 ## Features
  - Neural Search
