@@ -7,6 +7,7 @@ from jina.flow import Flow
 
 num_docs = int(os.environ.get('MAX_DOCS', 500000))
 
+
 def config():
     parallel = 3 if sys.argv[1] == 'index' else 1
     shards = 3
@@ -16,11 +17,13 @@ def config():
     os.makedirs(os.environ['WORKDIR'], exist_ok=True)
     os.environ['JINA_PORT'] = os.environ.get('JINA_PORT', str(65481))
 
+
 # for index
 def index():
     f = Flow.load_config('flows/index.yml')
     with f:
         f.index_lines(filepath='data/data.csv', batch_size=64, read_mode='r', size=num_docs)
+
 
 # for search
 def search():
@@ -28,11 +31,13 @@ def search():
     with f:
         f.block()
 
+
 # for test before put into docker
 def dryrun():
     f = Flow.load_config('flows/query.yml')
     with f:
         pass
+
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
@@ -49,5 +54,3 @@ if __name__ == '__main__':
         dryrun()
     else:
         raise NotImplementedError(f'unsupported mode {sys.argv[1]}')
-
-
