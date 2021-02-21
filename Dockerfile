@@ -1,6 +1,6 @@
 FROM jinaai/jina:0.5.5
 
-COPY . /workspace
+COPY dora /workspace
 WORKDIR /workspace
 
 RUN apt-get update && pip install -r requirements.txt
